@@ -17,9 +17,8 @@ title: rohit.cc
 author: Rohit Agarwal
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I am a software engineer based in Seattle, WA. This is my corner of the web where I  
-  tell stories from my programming experience, reading and tinkering. You can contact me 
-  at xxx@xxx.xxx.
+  I am a software engineer living in Seattle, WA. This is my corner of the web where I  
+  tell stories from my programming experience, reading and software tinkering.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: rohita
