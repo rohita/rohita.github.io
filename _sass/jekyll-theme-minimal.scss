@@ -57,6 +57,7 @@ footer {
   width: 150px;
   float: left;
   position: absolute;
+  margin-bottom: 8px;
 }
 
 .footer-right {
@@ -219,7 +220,7 @@ hr {
 
 @media print, screen and (max-width: 480px) {
   body {
-    padding: 15px;
+    padding: 5px 15px;
   }
 }
 
