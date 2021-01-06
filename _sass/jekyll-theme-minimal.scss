@@ -45,6 +45,14 @@ section {
   font: 18px/1.5 "Mate", Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+.tag {
+  background: #efefef;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-size: 8.8px;
+  margin: 0 10px 0 5px;
+}
+
 footer {
   bottom: 50px;
   color: #727272;
@@ -62,7 +70,7 @@ footer {
 
 .footer-right {
   float: right;
-  width: 700px;
+  width: 720px;
   font-size: 13px;
 }
 
@@ -121,7 +129,7 @@ blockquote {
 
 code, pre {
   font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 pre {
