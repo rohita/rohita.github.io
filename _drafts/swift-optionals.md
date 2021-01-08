@@ -1,73 +1,26 @@
 ---
 layout: post
-title:  5 Ways To Unwrap an Optional in Swift
-date:   2021-01-03 10:00:00 -0800
-tags: Swift
-mins: 10
+title:  "Welcome to Jekyll!"
+date:   2020-12-28 22:24:48 -0800
+tags: Jekyll
+mins: 5
 ---
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Tony Hoare introduced Null references in ALGOL W back in 1965. He said that decision was his [billion-dollar mistake][1]. It's true that handelling Null objects is a pain. That's why I love that Swift does not have Null references. Instead it has an elegant `Optional` type. 
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
+Jekyll also offers powerful support for code snippets:
 
-
-
-
-
-## Forced Unwrapping
-If you’re sure that an optional contain a value, you can _force unwrap_ its underlying value by adding an exclamation point (`!`) to the end of the optional’s name.
-
-```swift
-if schrodingersBox["Cat"] != nil {
-    schrodingersBox["Cat"]!.meow()
-}
+```ruby
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
 ```
 
-Trying to use `!` to access a nonexistent optional value triggers a runtime error. Therefore, forced unwrapping is not generally recommended. 
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
-## Optional Binding
-You can use `if let` to find out whether an optional contains a value, and if so, unwrap that value as a new variable. This is called _optional binding_. 
-
-```swift
-if let aliveCat = schrodingersBox["Cat"] {
-    aliveCat.meow()
-}
-```
-
-In this example the scope of `aliveCat` is only within the body of the `if` statement.
-
-## Guard Statement
-You can use `guard` statement to also check if optional contain a value. The `guard` statement has an `else` clause. The code inside the `else` clause is executed if the optional doesn't have a value. If the optional has a value, it is available in the lines of code that follow the guard statement.
-
-```swift
-guard let aliveCat = schrodingersBox["Cat"] else {
-    return
-}
-aliveCat.meow()
-```
-
-Using `guard` statement lets you early exit a method if value is not present. It improves the readability of the code compared to doing the same check with an `if` statement.
-
-
-## Nil-Coalescing Operator
-The fourth way you can unwrap an optional is using the nil-coalescing operator (`??`). This lets you provides a default if optional is `nil`. 
-
-```swift
-let aliveCat = schrodingersBox["Cat"] ?? defaultCat
-aliveCat.meow()
-```
-
-## Optional Chaining
-
-Finally, you can also unwrap by placing a question mark (`?`) after the optional. This is called _optional chaining_. 
-
-```swift
-schrodingersBox["Cat"]?.meow()
-```
-
-If the optional contains a value, the method call succeeds; if the optional is `nil`, the method returns `nil`. Multiple queries can be chained together, and the entire chain fails gracefully if any link in the chain is `nil`. This is similar to forced unwrapping using `!`. The main difference is that optional chaining fails gracefully when the optional is `nil`, whereas forced unwrapping triggers a runtime error.
-
-
-[1]: https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/
-[2]: https://developer.apple.com/documentation/swift/optional
-[3]: https://jllnmercier.medium.com/swift-enums-b68a1015e2ce
-
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
