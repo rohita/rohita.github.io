@@ -3,17 +3,8 @@ layout: default
 ---
 
 <div  class="post-title">
-	<h1>{{ page.title }}</h1>
-	{% if page.tags %}
-       <span class="tag">{{ page.tags | join: ", " | upcase }}</span>
-    {% endif %}
-    <small>
-    {{ page.date | date: "%-d %B %Y" }}
-    {% if page.mins %}
-       &nbsp;&nbsp;&bull;&nbsp; <span>{{ page.mins }} min read</span>
-    {% endif %}
-    </small>
-    
+	<h1>{{ post.title | default:page.title }}</h1>
+	{% include post_title.html %}
 </div>
 
 <div class="post-content">

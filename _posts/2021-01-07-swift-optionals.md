@@ -25,7 +25,7 @@ Here `Wrapped` is the underlying type. Swift simplifies the syntax to define opt
 You must "unwrap" the value of an `Optional` instance before you can use it. I will show 5 ways to unwrap optional values. The following examples use this dictionary of `String` to `Cat` objects. 
 
 ```swift
-let schrodingersBox = [ "cat": Cat(name: "Shady")]
+let schrodingersBox = ["cat": Cat(name: "Shady")]
 ```
 
 Getting a dictionary’s value using a key returns an optional value, so `schrodingersBox["Cat"]` has type `Cat?`.
