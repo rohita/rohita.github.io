@@ -4,7 +4,7 @@ title:  6 Ways To Unwrap an Optional in Swift
 date:   2021-01-07 10:00:00 -0800
 tags: Swift
 mins: 6
-excerpt: <p><code>Optional</code> instances in Swift must be "unwraped" before the values can used. I will show you 6 ways to unwrap optionals using a fun Schrodinger's cat example. How many of these methods do you know already? The last one may surprise you!</p>
+excerpt: <p><code>Optional</code> instances in Swift must be "unwraped" before their values can used. I will show you 6 ways to unwrap optionals using a fun Schrodinger's cat example. How many of these methods do you know already? The last one may surprise you!</p>
 ---
 
 Tony Hoare introduced Null references in ALGOL W back in 1965. He said that decision was his [billion-dollar mistake][1]. It's true that handelling Null objects is a pain. That's why I love that Swift does not have Null references. Instead it has an elegant `Optional` type. You use the `Optional` type whenever you need to use optional values. 
@@ -92,11 +92,11 @@ let aliveCat: Cat! = schrodingersBox["Cat"]
 aliveCat.meow()
 ```
 
-This way optionals are unwrapped automatically and can be used like a non-optional values, without the need to unwrap each time it’s accessed. However, if an implicitly unwrapped optional is `nil` and you try to access its wrapped value, you’ll trigger a runtime error. 
+This way optionals are unwrapped automatically and can be used like non-optional values, without the need to unwrap them each time they're accessed. However, if an implicitly unwrapped optional is `nil` and you try to access its wrapped value, you’ll trigger a runtime error. 
 
 ## Conclusion
 
-I cannot say if Swift Optionals saves a billion dollars, but I hope at least this article helpes in understanding optionals in Swift and how to unwrap them. Please feel free to contact me if you have any questions or comments. 
+I cannot say if Swift optionals saves a billion dollars, but I hope at least this article helpes in understanding how to unwrap them. Please feel free to contact me if you have any questions or comments. 
 
 
 [1]: https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/
