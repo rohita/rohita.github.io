@@ -2,11 +2,12 @@
 layout: post
 title:  6 Ways To Unwrap an Optional in Swift
 date:   2021-01-07 10:00:00 -0800
+category: Blog
 tags: Swift
 mins: 6
 ---
 
-`Optional` instances in Swift must be "unwraped" before their values can be used. I will show you 6 ways to unwrap optionals using a cheeky Schrodinger's cat example. How many of these methods do you already know? The last one may surprise you!
+`Optional` instances in Swift must be "unwraped" before their values can be used. I will show you 6 ways to unwrap optionals using examples from an imaginary cat experiment. How many of these methods do you already know? The last one may surprise you!
 
 ## Introduction
 
