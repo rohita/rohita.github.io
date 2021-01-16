@@ -7,45 +7,83 @@ tags: Swift
 mins: 6
 ---
 
-empty Error protocol
+We will look into 3 aspects of Error Handling in Swift: modeling errors, throwing errors, and handling errors. 
 
-There is no common Exception class which every one use without having to create a new one every time they have to throw an error. 
+# Modeling Errors
 
-https://github.com/highlightjs/highlight.js/blob/master/src/styles/stackoverflow-light.css
+Before you can throw errors you have define its type. In Swift, any type that conforms to the `Error` protocol can be used to represent an error. The protocol itself is empty.
+
+```swift
+public protocol Error { }
+```
+
+Any type can be an error, such as classes, structs or enums. 
+
+{:.note}
+There is no ready-made `Exception` class in the standard library which you can use in a crunch. You have to create a custom error type in your application to throw an error. This seems like an intentional decision by Swift designers to force developers to not be lazy and model errors for their domain.  
 
 
+## 1. Enums as Errors
 
-## Enums as Errors
+The standard Swift pattern is to define an `enum` conforming to `Error` protocol, with various related error conditions as its cases. The `enum` provides sort of a namespace of errors for your application domain. These cases can have associated values for additional information about the error.
 
+```swift
+enum HomeworkError : Error {
+  case overworked
+  case impossible
+  case eatenByDog(Dog)
+  case stopStressingMeWithYourRules
+}
+```
+
+Use different error conditions only if there are times when you want to take different actions for each, or catch one error and allow the other to pass through.
+
+## 2. Struct as Errors
+
+Sometimes a single error type is fine for a perticular area of code. The message sent with the exception can distinguish the errors.   
 
 
 ```swift
+struct HomeworkError: Error {
+  let reason: String
+}
 
+func doHomework() throws {
+  // ...
+  throw HomeworkError(reason: "Eaten by dog: \(dog)")
+  // ...
+}
 ```
 
-Up until Swift 4.0, adding a new case to an enum was a source-breaking change
+# Throwing
 
-## Struct as Errors
+To indicate that a function can throw an error, you write the `throws` keyword in the function’s declaration. A function marked with `throws` is called a _throwing function_. This is similar to _checked exceptions_ in other languages, like Java. But unlike Java, Swift does not also support unchecked exceptions. Meaning, only throwing functions can propagate errors. Any errors thrown inside a nonthrowing function must be handled inside that function.
 
 ```swift
-
-
-```
-
-## Throwing
-
-To indicate that a function can throw an error, you write the `throws` keyword in the function’s declaration. A function marked with `throws` is called a _throwing function_. This is similar to _checked exceptions_ in other languages, like Java. But unlike Java, Swift does not also support unchecked exceptions. Only throwing functions can propagate errors. Any errors thrown inside a nonthrowing function must be handled inside that function.
+func foo() -> Int { // This function is not permitted to throw. 
+func bar() throws -> Int { // This function is permitted to throw.
+``` 	
 
 ### Source Breaking 
 
+{:.note}
 This is somewhat probamatic. Consider a call hierarchy of a large system. Functions at the top call functions below them, which call more functions below them, as so on. If one of the lowest level functions is modified to throw an error, then every function that calls it must also be modified either to catch the error or add the `throws` clause to its signature. And so on. The result is a cascade of changes from the lowest levels to the highest. 
 
+```swift
+error: error is not handled because the enclosing catch is not exhaustive
+```	
+
+
 So be careful adding `throws` to existing methods, since it is can be a big source-breaking change. 
+
 
 ### Alternative return values
 
 The checked expection are really alternative return values. The whole idea of exceptions is that an error thrown somewhere way down the call chain can bubble up and be handeled by somewhere futher up, without the intervening code having to worry about it. Checked exceptions require every level of code between the thrower and the catcher to declare they know about the exception that can go through them. This is really no different in practice to returning special return values which the caller had to check for. 
 
+### Scattered error handling
+
+It tends to promote scattered error handling instead of letting errors propagate to a level that actually knows how to handle them. Someprogrammerswillalwaysbetemptedtoincorrectlypeppertheircodewithhandlersthatjustswallow errors instead of correctly propagating them to the right place. This is often worse than useless; it would often be better if the error just propagated silently.
 
 
 ## Handelling
@@ -62,6 +100,13 @@ func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws {
     try vendingMachine.vend(itemNamed: snackName)
 }
 ```
+
+As a general principle, don't catch errors unless you know what to do with them. Allow the error to propagate up. Otherwise, catching errors at the wrong level tends to result in code that silently fails without providing any useful feedback to the calling code (and ultimately the user of the software).  The only reasons why a function should have a catch and rethrow mechanism are: 
+
+You want to convert one exception to a different one that is more meaningful to the caller above.
+You want to add extra information to the exception.
+
+
 
 ### 2. Handle using do-catch
 

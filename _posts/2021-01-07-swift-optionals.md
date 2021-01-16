@@ -9,7 +9,7 @@ mins: 6
 
 `Optional` instances in Swift must be "unwraped" before their values can be used. I will show you 6 ways to unwrap optionals using examples from an imaginary cat experiment. How many of these methods do you already know? The last one may surprise you!
 
-## Introduction
+# Introduction
 
 [Tony Hoare][3] invented the Null reference in 1965 as part of the ALGOL W language. He later called it as a ["billion-dollar mistake"][1], saying
 
@@ -26,7 +26,7 @@ enum Optional<Wrapped> {
 
 Optional either holds _no value_ or _some value_. The `none` enum case denotes the absence of a value and is equivalant to the `nil` literal. The presence of value is stored as `Wrapped`, which is the underlying type of the value. Swift simplifies the syntax to define optional by using trailing question mark (`?`) instead of typing the full type name. For example, if a variable has the type `Int?`, that’s shortened way of writing `Optional<Int>`. 
 
-## Unwrapping Optionals	
+# Unwrapping Optionals	
 
 Unwapping optionals means extracting out the stored value before it can be used. I will show you 6 ways to unwrap optional values. The following examples use a dictionary of `String` to `Cat` objects. 
 
@@ -102,7 +102,7 @@ aliveCat.meow()
 
 This way optionals are unwrapped automatically and can be used like non-optional values, without the need to unwrap them each time they're accessed. However, if an implicitly unwrapped optional is `nil` and you try to access its wrapped value, you’ll trigger a runtime error. 
 
-## Conclusion
+# Conclusion
 
 I cannot say if Swift optionals have saved a billion dollars, but I hope at least this article helped you in understanding how to unwrap them. Please feel free to contact me if you have any questions or comments. 
 
