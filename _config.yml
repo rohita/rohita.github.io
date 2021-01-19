@@ -25,6 +25,9 @@ github_username: rohita
 
 # Build settings
 markdown: kramdown
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
