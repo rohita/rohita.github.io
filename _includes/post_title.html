@@ -1,5 +1,5 @@
-<span class="tag">{{ post.tags | default:page.tags | join: ", " | upcase }}</span>
-<small>
-  {{ post.date | default:page.date | date: "%-d %B %Y" }}
-  &nbsp;&nbsp;&bull;&nbsp; <span>{{ post.mins | default:page.mins }} min read</span>
+<small>	
+  <span class="date">{{ post.date | default:page.date | date: "%-d %B %Y" }}</span>
+  <span class="tags">{{ post.tags | default:page.tags | join: ", " }}</span>
+  <span class="time">{{ post.mins | default:page.mins }} min read</span>
 </small>

@@ -37,7 +37,7 @@ if timeNow > dueByDate {
 }
 ```
 
-Now, you don't have to create new classes; you just create one error `enum` type for your application and add new cases whenever you have new error types. The `enum` provides a namespace for your application errors. If you still have a need those no-action-string-message errors, you can even add a generic case for that -
+Now you don't have to create new classes; you just create one error `enum` type for your application and add new cases whenever you have new error types. The `enum` provides a namespace for your application errors. And if you still have a need for those no-action-string-message errors, you can even add a generic case for that -
 
 ```swift
 enum HomeworkError: Error {
@@ -80,7 +80,7 @@ func gradeHomework(student: Student) throws {
 }
 ```
 
-In addition to marking the location of potential error, `try` keyword also lets the error propagate out. The `try` can be modified using `try?` and `try!` to _stops_ error propagation right there. 
+In addition to marking the location of potential error, `try` keyword also lets the error propagate out. The `try` can be modified using `try?` and `try!` to _stop_ error propagation right there. 
 
 ```swift
 let ignoreExcuses: Homework? = try? student.doHomework()  

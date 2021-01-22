@@ -24,7 +24,7 @@ enum Optional<Wrapped> {
 }
 ```
 
-Optional either holds _no value_ or _some value_. The `none` enum case denotes the absence of a value and is equivalant to the `nil` literal. The presence of value is stored as `Wrapped`, which is the underlying type of the value. Swift simplifies the syntax to define optional by using trailing question mark (`?`) instead of typing the full type name. For example, if a variable has the type `Int?`, that’s shortened way of writing `Optional<Int>`. 
+Optional either holds _no value_ or _some value_. The `none` enum case denotes the absence of a value and is equivalant to the `nil` literal. The `some` enum case denotes presence of value and is stored as `Wrapped`, which is the underlying type of the value. Swift simplifies the syntax to define optional by using trailing question mark (`?`) instead of typing the full type name. For example, if a variable has the type `Int?`, that’s shortened way of writing `Optional<Int>`. 
 
 # Unwrapping Optionals	
 

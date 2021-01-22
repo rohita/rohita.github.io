@@ -1,6 +1,7 @@
 @import "fonts";
 @import "stackoverflow-light";
 @import "downloads";
+@import "post-title";
 
 
 .wrapper {
@@ -29,32 +30,8 @@ section {
   padding: 20px 20px 10px 20px;
 }
 
-.post-title {
-  margin: 10px 0 20px;
-}
-
-.post-title h1 {
-  margin: 0px;
-}
-
-.post-title small {
-  color: #727272;
-}
-
-.post-title a {
-  color: #222;
-}
-
 .post-content {
   font: 19px/1.5 "Mate", Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
-.tag {
-  background: #e7eff6;
-  padding: 4px 7px;
-  border-radius: 5px;
-  font-size: 8.8px;
-  margin: 0 10px 0 5px;
 }
 
 .read-more {
@@ -103,7 +80,7 @@ h1, h2, h3 {
 
 h1 {
   color: #222;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 h2, h3 {

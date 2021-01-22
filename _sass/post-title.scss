@@ -1,0 +1,57 @@
+
+.post-title {
+  margin: 10px 0 20px;
+
+  h1 {
+    margin: 0 0 3px 0;
+  }
+
+  small {
+    color: #999;
+    font-size: 12px;
+  }
+
+  a {
+    color: #222;
+  }
+
+  .date,
+  .time,
+  .tags,
+  .author {
+    padding-right: 10px;
+  }
+
+  .date::before,
+  .time::before,
+  .tags::before,
+  .author::before {
+    font-family: FontAwesome;
+    left: 0;
+    margin-right: 5px;
+  }
+
+  .date::before {
+    content: '\f073';
+  }
+
+  .time::before {
+    content: '\f017'
+  }
+
+  .tags::before {
+    content: '\f02c';
+  }
+
+  .author::before {
+    content: '\f007'
+  }
+}
+
+.tag {
+  background: #e7eff6;
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 8.8px;
+  margin: 0 10px 0 5px;
+}
