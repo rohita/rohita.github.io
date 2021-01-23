@@ -6,7 +6,10 @@
   <body>
     <div class="wrapper">
       <header>
-        <a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a>
+        <a href="{{ "/" | absolute_url }}">
+          <img src="/assets/images/favicon/CodingPapa.png" />
+          <span>{{ site.title | default: site.github.repository_name }}</span>
+        </a>
       </header>
 
       <section>
